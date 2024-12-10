@@ -1,0 +1,12 @@
+/*This is necessary, it should be the class of the carousel containing the items.*/
+carousel-container {
+	display: inline-flex; /*This is necessary to function, it allows this to be inline.*/
+	overflow: hidden;     /*This is necessary to function, otherwise you will see the other items.*/
+}
+
+/*This is necessary, it should be the class of all items.*/
+carousel-item { 
+	flex-shrink: 0;      /*This is necessary to function, this prevents size changing shenanigans.*/
+	position: relative;  /*This is necessary to function, this allows positioning to work.*/
+	transition: left 1s; /*This is necessary for the sliding animation, you can change the time.*/
+}
