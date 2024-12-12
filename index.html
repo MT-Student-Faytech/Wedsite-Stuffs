@@ -3,7 +3,17 @@
 	<title>Strange Critters Home Page</title>
 	<link rel="stylesheet" href="css/Styles.css">
 	<link rel="stylesheet" href="css/carousel.css">
-	<script href="js/carousel.js"></script>
+	<script src="js/carousel.js"></script>
+	<style>
+		.carousel-image-big {
+			width:475px;
+			height:300px;
+		}
+		.carousel-image-small {
+			width:237px;
+			height:150px;
+		}
+	</style>
 </head>
 
 <body style="background-color:black; text-align:center;">
@@ -16,7 +26,26 @@
 		</tr>
 	</table>
 	
-	<img src="Images/Screenshot (87).png" alt="Bony fish" width="750" height="420" style="margin-bottom: 30; margin-top: 30">
+	<carousel-container style="margin-bottom: 30; margin-top: 30" time-delay="1750" class="carousel-image-small">
+		<carousel-item class="carousel-image-small"><img src="entries/Invertebrates/Anomalocaris/Luis-r-blanco-anomalocaris-web.png" class="carousel-image-small"></carousel-item>
+		<carousel-item class="carousel-image-small"><img src="entries/Fish/Dunkleosteus/dunkleosteus.png" class="carousel-image-small"></carousel-item>
+		<carousel-item class="carousel-image-small"><img src="entries/Dinosaurs/Nothronychus/f7d0eb84fbcb6abdf3c4166c860cb7c4.png" class="carousel-image-small"></carousel-item>
+		<carousel-item class="carousel-image-small"><img src="entries/Invertebrates/Anomalocaris/Luis-r-blanco-anomalocaris-web.png" class="carousel-image-small"></carousel-item>
+	</carousel-container>
+	
+	<carousel-container style="margin-bottom: 30; margin-top: 30" time-delay="1750" class="carousel-image-big">
+		<carousel-item class="carousel-image-big"><img src="entries/Dinosaurs/Nothronychus/f7d0eb84fbcb6abdf3c4166c860cb7c4.png" class="carousel-image-big"></carousel-item>
+		<carousel-item class="carousel-image-big"><img src="entries/Invertebrates/Anomalocaris/Luis-r-blanco-anomalocaris-web.png" class="carousel-image-big"></carousel-item>
+		<carousel-item class="carousel-image-big"><img src="entries/Fish/Dunkleosteus/dunkleosteus.png" class="carousel-image-big"></carousel-item>
+		<carousel-item class="carousel-image-big"><img src="entries/Dinosaurs/Nothronychus/f7d0eb84fbcb6abdf3c4166c860cb7c4.png" class="carousel-image-big"></carousel-item>
+	</carousel-container>
+	
+	<carousel-container style="margin-bottom: 30; margin-top: 30" time-delay="1750" class="carousel-image-small">
+		<carousel-item class="carousel-image-small"><img src="entries/Fish/Dunkleosteus/dunkleosteus.png" class="carousel-image-small"></carousel-item>
+		<carousel-item class="carousel-image-small"><img src="entries/Dinosaurs/Nothronychus/f7d0eb84fbcb6abdf3c4166c860cb7c4.png" class="carousel-image-small"></carousel-item>
+		<carousel-item class="carousel-image-small"><img src="entries/Invertebrates/Anomalocaris/Luis-r-blanco-anomalocaris-web.png" class="carousel-image-small"></carousel-item>
+		<carousel-item class="carousel-image-small"><img src="entries/Fish/Dunkleosteus/dunkleosteus.png" class="carousel-image-small"></carousel-item>
+	</carousel-container>
 	
 	<table>
 		<tr>
