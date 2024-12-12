@@ -1,10 +1,11 @@
 // Create a class for the element
 class Carousel extends HTMLElement {
-	static get observedAttributes() { return ['time-delay']; }
+	static get observedAttributes() { return ['time-delay', 'slide-speed']; }
 	
 	constructor() {
 		super();
 		this._timeDelayValue = 1000; // Default value for time delay
+		this._slideSpeedValue = 1000; // Default value for time delay
 		this.items = [];
 		this.index = 0;
 		this.max_index = 0;
@@ -19,6 +20,14 @@ class Carousel extends HTMLElement {
 				this._timeDelayValue = numericValue; // Store the validated value
 			} else {
 				console.error(`Invalid value for time-delay: ${newValue} is not a number.`);
+			}
+		} else if (name === 'slide-speed') {
+			const numericValue = this.validateAndConvertToNumber(newValue);
+			if (numericValue !== null) {
+				console.log(numericValue);
+				this._slideSpeedValue = numericValue; // Store the validated value
+			} else {
+				console.error(`Invalid value for slide-speed: ${newValue} is not a number.`);
 			}
 		}
 	}
@@ -35,6 +44,21 @@ class Carousel extends HTMLElement {
 			this.setAttribute('time-delay', numericValue); // Update the DOM attribute
 		} else {
 			console.error(`Invalid value for timeDelay: ${value} is not a number.`);
+		}
+	}
+	
+	// Getter for the custom attribute value
+	get slideSpeed() {
+		return this._slideSpeedValue || 1000; // Default to 1000 if not set
+	}
+
+	// Setter for the custom attribute value
+	set slideSpeed(value) {
+		const numericValue = this.validateAndConvertToNumber(value);
+		if (numericValue !== null) {
+			this.setAttribute('slide-speed', numericValue); // Update the DOM attribute
+		} else {
+			console.error(`Invalid value for slide-speed: ${value} is not a number.`);
 		}
 	}
 
@@ -62,8 +86,22 @@ class Carousel extends HTMLElement {
 	move = () => {
 		if (!this.items || this.items.length === 0) return;
 
+		if ((this.index) % this.max_index == 0) {
+			console.log("You reached this.");
+			for (let i = 0; i < this.max_index; i++) {
+				this.items[i].style.transitionDuration = "0s";
+				const offset = ((((this.max_index - (this.index + 1)) - i) * this.offsetWidth) - (i * this.offsetWidth));
+				this.items[i].style.left = `${offset}px`; // Update each item's position
+			}
+
+			this.index = (this.index + 1) % this.max_index; // Increment index and keep it within bounds
+		}
+
+		
+
 		for (let i = 0; i < this.max_index; i++) {
 			const offset = ((((this.max_index - (this.index + 1)) - i) * this.offsetWidth) - (i * this.offsetWidth));
+			this.items[i].style.transitionDuration = `${this._slideSpeedValue / 1000}s`;
 			this.items[i].style.left = `${offset}px`; // Update each item's position
 		}
 
